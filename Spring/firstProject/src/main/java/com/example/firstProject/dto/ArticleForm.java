@@ -1,6 +1,6 @@
 package com.example.firstProject.dto;
 
-import com.example.firstProject.entitiy.Article;
+import com.example.firstProject.entity.Article;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 
