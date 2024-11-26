@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -13,6 +14,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Entity // DB가 해당 객체를 인식가능
+@Getter // 모든 객체에 Getter 생성
 public class Article {
 
     @Id // 대표값을 지정! like a 학번!!
@@ -25,7 +27,7 @@ public class Article {
     @Column
     private String content;
 
-//    public Article(Long id, String title, String content)
+    //    public Article(Long id, String title, String content)
 //    {
 //        this.id = id;
 //        this.title = title;

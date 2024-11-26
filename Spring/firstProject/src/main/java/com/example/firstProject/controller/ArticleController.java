@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 @Slf4j
 public class ArticleController {
@@ -40,11 +42,11 @@ public class ArticleController {
         log.info(saved.toString());
 //        System.out.println(saved.toString());
 
-        return "";
+        return "redirect:/articles/" + saved.getId();
     }
 
     @GetMapping("/articles/{id}")
-    public String show(@PathVariable Long id, Model model) // 주소 줄에 있는 변수를 가져온다.
+    public String show(@PathVariable Long id, Model model) // @PathVariable : 주소 줄에 있는 변수를 가져온다.
     {
         log.info("id = " + id);
 
@@ -58,6 +60,19 @@ public class ArticleController {
 
         // 3. 보여줄 페이지를 설정!
         return "articles/show";
+    }
+
+    @GetMapping("/articles")
+    public String index(Model model)
+    {
+        // 1. 모든 Article을 가져온다!
+        List<Article> articleEntityList = articleRepository.findAll();
+
+        // 2. 가져온 Article 묶음을 View로 전달한다!
+        model.addAttribute("articleList", articleEntityList);
+
+        // 3. View 페이지를 생성!
+        return "articles/index";
     }
 
 }
