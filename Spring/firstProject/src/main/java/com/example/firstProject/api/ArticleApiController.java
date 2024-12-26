@@ -1,8 +1,6 @@
 package com.example.firstProject.api;
-
 import com.example.firstProject.dto.ArticleForm;
 import com.example.firstProject.entity.Article;
-import com.example.firstProject.repositoty.ArticleRepository;
 import com.example.firstProject.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-        import java.util.List;
+import java.util.List;
 
 @Slf4j
 @RestController
